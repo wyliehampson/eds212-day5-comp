@@ -1,0 +1,113 @@
+---
+title: "Logicals"
+author: "Wylie Hampson"
+date: "8/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Taking a look at `starwars`
+
+- `include = `: show or hide everything
+- `echo = `: show or hide code
+
+```{r, include = FALSE}
+# Summary of starwars
+summary(starwars)
+
+# Look at first few lines of starwars
+head(starwars)
+
+# Check the dimensions of starwars
+dim(starwars)
+```
+
+```{r, warning = FALSE}
+ggplot(data = starwars, aes(x = height, y = mass)) + 
+  geom_point(color = "purple")
+
+```
+## Find the mean, variance, and SD of character height
+
+```{r}
+sw_height_mean <- mean(starwars$height, na.rm = TRUE)
+
+# Using similar naming system, find:
+# Variance of character height (var())
+# standard deviation of character height (sd())
+sw_height_variance <- var(starwars$height, na.rm = TRUE)
+sw_height_sd <- sd(starwars$height, na.rm = TRUE)
+
+sw_height_mean
+sw_height_variance
+sw_height_sd
+
+```
+
+Mean character height is `r round(sw_height_mean, 1)` cm with a standard deviation of `r round(sw_height_sd, 1)` cm.
+
+## Logical expressions
+
+```{r}
+5 < 10
+
+"cat" > "armadillo"
+
+"cat" > "elephant"
+
+"cat" == "cat"
+```
+
+```{r}
+10 <= 11
+
+5 >= 4
+
+3 >= 1
+
+```
+
+```{r}
+tarantulas <- c(1, 3, 7, 10, 15)
+
+tarantulas > 5
+```
+
+## Logical operators:
+
+- `!`
+- `&`
+- `|`
+
+```{r}
+3 < 1 | 8 > 2
+
+6 < 10 & 5 < 1
+
+7 != 11
+
+4 != 4 | 2 < 5 | 6 > 10
+
+0 == FALSE
+1 == TRUE
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
